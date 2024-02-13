@@ -1,8 +1,8 @@
 SERVER
 
-/lib/mongodb contains connectiong to my test database hosted on mongo atlas for this test task
+/lib/mongodb contains connecting to my test database hosted on mongo atlas for this test task
 
-/src/api constains axion instance for making REST request to backend
+/src/api constains axios instance for making REST requests to backend
 
 /src/app/api contains route handlers to database
 
