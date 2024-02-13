@@ -17,14 +17,23 @@ export default function EditProductsModal(props: EditProductsModalProps) {
   const router = useRouter();
   const [inputValue, setInputValue] = useState(data.name);
   const [loading, setLoading] = useState(false);
+  const [isInputEmpty, setIsInputEmpty] = useState(false);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
+    setIsInputEmpty(false);
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+
+    if (!inputValue) {
+      setIsInputEmpty(true);
+      setLoading(false);
+      return;
+    }
+
     const response = await updateProducts(data.id, inputValue);
     if (response?.status !== 200) {
       setLoading(false);
@@ -54,6 +63,11 @@ export default function EditProductsModal(props: EditProductsModalProps) {
               onChange={handleInputChange}
               className="peer block w-full bg-transparent text-sm outline-2 pl-2 focus:outline-none border rounded px-2 py-2"
             />
+            {isInputEmpty && (
+              <span className="text-red-300">
+                Your input field should not be empty
+              </span>
+            )}
           </div>
         </div>
         <Button
