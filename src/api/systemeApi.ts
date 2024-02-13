@@ -1,9 +1,14 @@
-import { BASE_URL } from "@/app/config";
 import { Pages, PricePlans, Products } from "@/shared/types/types";
 import axios from "axios";
 
+if (!process.env.NEXT_PUBLIC_REST_API_ENDPOINT) {
+  throw new Error(
+    'Invalid/Missing environment variable: "NEXT_PUBLIC_REST_API_ENDPOINT"'
+  );
+}
+
 const SystemeApi = axios.create({
-  baseURL: BASE_URL,
+  baseURL: process.env.NEXT_PUBLIC_REST_API_ENDPOINT,
   timeout: 4000,
   headers: {
     "Content-Type": "application/json",
