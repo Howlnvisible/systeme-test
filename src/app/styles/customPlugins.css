@@ -1,0 +1,30 @@
+.rc-table .rc-table-cell {
+  background-color: #222b44;
+  color: white;
+}
+
+.rc-table tr.rc-table-row:hover {
+  background-color: #222b44 !important;
+}
+
+.rc-table thead.rc-table-thead th {
+  background-color: #0e0c15 !important;
+  border: none;
+}
+
+.rc-table tr.rc-table-row td.rc-table-cell-row-hover {
+  background-color: #1b2235 !important;
+}
+
+.rc-table .rc-table-cell {
+  border-bottom: 1px solid #616d8d;
+  border-top: 1px solid #616d8d;
+  border-left: none;
+  border-right: none;
+}
+
+.rc-table .rc-table-content,
+.rc-table .rc-table-body,
+.rc-table .rc-table-header {
+  border-color: transparent;
+}
